@@ -1,0 +1,30 @@
+templateparameter:
+    pattern:  /
+    defaults: { _controller: "MesdNotificationBundle:TemplateParameter:index" }
+
+templateparameter_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "MesdNotificationBundle:TemplateParameter:show" }
+
+templateparameter_new:
+    pattern:  /new
+    defaults: { _controller: "MesdNotificationBundle:TemplateParameter:new" }
+
+templateparameter_create:
+    pattern:  /create
+    defaults: { _controller: "MesdNotificationBundle:TemplateParameter:create" }
+    requirements: { _method: post }
+
+templateparameter_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "MesdNotificationBundle:TemplateParameter:edit" }
+
+templateparameter_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "MesdNotificationBundle:TemplateParameter:update" }
+    requirements: { _method: post|put }
+
+templateparameter_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "MesdNotificationBundle:TemplateParameter:delete" }
+    requirements: { _method: post|delete }

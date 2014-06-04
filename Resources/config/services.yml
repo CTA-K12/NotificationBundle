@@ -1,0 +1,7 @@
+parameters:
+#    mesd_notification.example.class: Mesd\NotificationBundle\Example
+
+services:
+#    mesd_notification.example:
+#        class: %mesd_notification.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

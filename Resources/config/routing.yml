@@ -1,0 +1,27 @@
+MesdNotificationBundle_home:
+    path:  /
+    defaults: { _controller: MesdNotificationBundle:Default:index }
+
+MesdNotificationBundle_notification:
+    resource: "@MesdNotificationBundle/Resources/config/routing/notification.yml"
+    prefix:   /notification
+
+MesdNotificationBundle_notificationparameter:
+    resource: "@MesdNotificationBundle/Resources/config/routing/notificationparameter.yml"
+    prefix:   /notificationparameter
+
+MesdNotificationBundle_parametertype:
+    resource: "@MesdNotificationBundle/Resources/config/routing/parametertype.yml"
+    prefix:   /parametertype
+
+MesdNotificationBundle_status:
+    resource: "@MesdNotificationBundle/Resources/config/routing/status.yml"
+    prefix:   /status
+
+MesdNotificationBundle_template:
+    resource: "@MesdNotificationBundle/Resources/config/routing/template.yml"
+    prefix:   /template
+
+MesdNotificationBundle_templateparameter:
+    resource: "@MesdNotificationBundle/Resources/config/routing/templateparameter.yml"
+    prefix:   /templateparameter

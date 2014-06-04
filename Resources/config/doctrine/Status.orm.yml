@@ -1,0 +1,33 @@
+Mesd\NotificationBundle\Entity\Status:
+    type:            entity
+    table:           notify_status
+    repositoryClass: Mesd\NotificationBundle\Entity\StatusRepository
+    fields:
+        id:
+            id:       true
+            type:     integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: AUTO
+            sequenceGenerator:
+                sequenceName: notify_status_id_seq
+                initialValue: 1
+        shortName:
+            column:   shortName
+            type:     string
+            length:   16
+            nullable: false
+            unique:   true
+        longName:
+            column:   longName
+            type:     string
+            length:   64
+            nullable: true
+            unique:   false
+        description:
+            column:   description
+            type:     text
+            nullable: true
+            unique:   false
+    lifecycleCallbacks: {  }

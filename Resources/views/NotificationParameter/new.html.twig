@@ -1,0 +1,15 @@
+{% extends 'MesdOrcaseAppBundle:Index:index.html.twig' %}
+
+{% block main %}
+    <h1>NotificationParameter creation</h1>
+
+    {{ form(form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('notificationparameter') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock main %}

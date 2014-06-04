@@ -1,0 +1,89 @@
+{% extends '::index.html.twig' %}
+
+{% block main %}
+<h1>Notification Bundle</h1>
+
+<h2>About</h2>
+<p>
+    The MesdNotificationBundle is a notification management tool similar
+    to what you'll see on Google+ or Facebook. Using the API, any system
+    may send arbitrary messages to the notification system for posting to
+    a user's notification queue. Users, administrators, and automated
+    processes maintain and manipulate a user's queue.
+</p>
+
+<h2>API</h2>
+
+<h3>
+    get user's queue
+    <code class="subtitle">/notify/userqueue/{id}.{fmt}</code>
+</h3>
+<p>response:</p>
+<pre>
+    {
+        "userid": 1234,
+        "queue": {
+            "items": {
+                0: {
+                    "id": 5678,
+                    "shortTitle": "short title",
+                    "longTitle": "this is the long title",
+                    "body": "this is the ENCODED body"
+                }
+            }
+        }
+    }
+</pre>
+
+Get
+    userqueue
+    userqueueall
+    userqueuebystatus
+    userqueuebytype
+
+Create
+{% endblock main %}
+
+{% block sidebar %}
+    {{ render(controller('MesdPresentationBundle:Default:sidebar',
+        { 'route': app.request.get('_route'),
+          'options': { 'type': '' },
+          'menu': {
+            'Home': {
+                'path': path('MesdNotificationBundle_home'),
+                'title': 'Notification Home',
+                'icon': 'fa-dashboard'
+            },
+            'Notifications': {
+                'path': path('notification'),
+                'title': 'Notification Notifications',
+                'icon': 'fa-files-o'
+            },
+            'Statuses': {
+                'path': path('status'),
+                'title': 'Notification Statuses',
+                'icon': 'fa-files-o'
+            },
+            'Templates': {
+                'path': path('template'),
+                'title': 'Notification Templates',
+                'icon': 'fa-comments-o'
+            },
+            'Parameters': {
+                'path': path('notificationparameter'),
+                'title': 'Template Parameters',
+                'icon': 'fa-link'
+            },
+            'Parameter Types': {
+                'path': path('parametertype'),
+                'title': 'Parameter Types',
+                'icon': 'fa-clock-o'
+            },
+            'Parameter Types': {
+                'path': path('templateparameter'),
+                'title': 'Parameter Types',
+                'icon': 'fa-clock-o'
+            }
+        }
+    })) }}
+{% endblock sidebar %}

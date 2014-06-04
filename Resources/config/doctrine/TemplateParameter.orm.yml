@@ -1,0 +1,45 @@
+Mesd\NotificationBundle\Entity\TemplateParameter:
+    type:            entity
+    table:           notify_template_parameter
+    repositoryClass: Mesd\NotificationBundle\Entity\TemplateParameterRepository
+    fields:
+        id:
+            id:       true
+            type:     integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: AUTO
+            sequenceGenerator:
+                sequenceName: notify_template_parameter_id_seq
+                initialValue: 1
+        name:
+            column:   name
+            type:     string
+            length:   255
+            nullable: false
+            unique:   true
+        value:
+            column:   value
+            type:     string
+            length:   255
+            nullable: true
+            unique:   false
+        valueType:
+            column:   value_type
+            type:     string
+            length:   16
+            nullable: false
+            unique:   false
+    manyToOne:
+        template:
+            targetEntity: Template
+            joinColumn:
+                name:                 template_id
+                referencedColumnName: id
+        parameterType:
+            targetEntity: ParameterType
+            joinColumn:
+                name:                 parameter_type_id
+                referencedColumnName: id
+    lifecycleCallbacks: {  }

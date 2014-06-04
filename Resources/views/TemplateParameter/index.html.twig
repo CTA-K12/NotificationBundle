@@ -1,0 +1,44 @@
+{% extends 'MesdOrcaseAppBundle:Index:index.html.twig' %}
+
+{% block main %}
+
+    <table class="table table-bordered table-condensed table-hover table-striped">
+        <thead>
+            <tr>
+                <th>Actions</th>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Value</th>
+                <th>Valuetype</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('templateparameter_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('templateparameter_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+                <td><a href="{{ path('templateparameter_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td><a href="{{ path('templateparameter_show', { 'id': entity.id }) }}">{{ entity.name }}</a></td>
+                <td><a href="{{ path('templateparameter_show', { 'id': entity.id }) }}">{{ entity.value }}</a></td>
+                <td><a href="{{ path('templateparameter_show', { 'id': entity.id }) }}">{{ entity.valueType }}</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('templateparameter_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock main %}

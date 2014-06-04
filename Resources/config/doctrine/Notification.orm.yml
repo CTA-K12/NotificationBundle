@@ -1,0 +1,79 @@
+Mesd\NotificationBundle\Entity\Notification:
+    type:            entity
+    table:           notify_notification
+    repositoryClass: Mesd\NotificationBundle\Entity\NotificationRepository
+    fields:
+        id:
+            id:       true
+            type:     integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: AUTO
+            sequenceGenerator:
+                sequenceName: notify_notification_id_seq
+                initialValue: 1
+        shortTitle:
+            column:   short_title
+            type:     string
+            length:   16
+            nullable: false
+            unique:   false
+        longTitle:
+            column:   long_title
+            type:     string
+            length:   64
+            nullable: true
+            unique:   false
+        body:
+            column:   body
+            type:     text
+            nullable: false
+            unique:   false
+        bodyRaw:
+            column:   body_raw
+            type:     boolean
+            nullable: false
+            unique:   false
+        userModifiable:
+            column:   user_modifiable
+            type:     boolean
+            nullable: false
+            unique:   false
+        sticky:
+            column:   sticky
+            type:     integer
+            nullable: false
+            unique:   false
+        createdOn:
+            column:  created_on
+            type:      datetime
+            nullable: false
+            unique:   false
+        postedOn:
+            column:   postedOn
+            type:     datetime
+            nullable: false
+            unique:   false
+        expiredOn:
+            column:   expiredOn
+            type:     datetime
+            nullable: true
+            unique:   false
+    manyToOne:
+        user:
+            targetEntity: Mesd\NotificationBundle\Model\UserSubjectInterface
+            joinColumn:
+                name:                 user_id
+                referencedColumnName: id
+        template:
+            targetEntity: Template
+            joinColumn:
+                name:                 template_id
+                referencedColumnName: id
+        status:
+            targetEntity: Status
+            joinColumn:
+                name:                 status_id
+                referencedColumnName: id
+    lifecycleCallbacks: {  }
